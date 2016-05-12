@@ -9,12 +9,6 @@
             "SymfonyStandard": "app/"
         }
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://erpag:erpag2013@toran.erpag.info/repo/private/"
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.6.*",
@@ -28,7 +22,6 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "seld/jsonlint": "~1.3",
-        "ligneus/user-bundle": "3.*",
         "knplabs/knp-paginator-bundle": "~2.4",
         "jms/serializer-bundle": "0.13.*",
         "guzzlehttp/guzzle": "~6.0",
