@@ -5,45 +5,46 @@ parameters:
 
 services:
     exc.incident_graph:
-        class: Ligneus\AppBundle\Service\IncidentGraphService
+        class: AppBundle\Service\IncidentGraphService
         arguments:
             - "@doctrine"
     exc.exception_type_graph:
-        class: Ligneus\AppBundle\Service\ExceptionTypeGraphService
+        class: AppBundle\Service\ExceptionTypeGraphService
         arguments:
             - "@doctrine"
     exc.application:
-        class: Ligneus\AppBundle\Service\ApplicationService
+        class: AppBundle\Service\ApplicationService
         arguments:
             - "%exc.ping_threshold%"
             - "@doctrine"
     exc.string_extension:
-        class: Ligneus\AppBundle\Twig\StringExtension
+        class: AppBundle\Twig\StringExtension
         public: false
         tags:
             - { name: twig.extension }
     exc.app_extension:
-        class: Ligneus\AppBundle\Twig\AppExtension
+        class: AppBundle\Twig\AppExtension
         public: false
         tags:
             - { name: twig.extension }
         arguments:
             - "@exc.application"
     exc.date_extension:
-        class: Ligneus\AppBundle\Twig\DateExtension
+        class: AppBundle\Twig\DateExtension
         public: false
         tags:
             - { name: twig.extension }
         arguments:
             - "@exc.application"
     exc.slack:
-        class: Ligneus\TrackerBundle\Service\SlackService
+        class: TrackerBundle\Service\SlackService
     exc.mail:
-        class: Ligneus\TrackerBundle\Service\MailService
+        class: TrackerBundle\Service\MailService
         arguments:
             - "@mailer"
+            - "%exc.mail_from%"
     exc.tracker:
-        class: Ligneus\TrackerBundle\Service\TrackerService
+        class: TrackerBundle\Service\TrackerService
         arguments:
             - "@exc.slack"
             - "@validator"

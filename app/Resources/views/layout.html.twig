@@ -26,7 +26,7 @@
                 </button>
                 <a class="navbar-brand" href="{{ path('index') }}">
                     <i class="fa fa-hashtag"></i>
-                    AppMonitor
+                    Phylax
                 </a>
             </div>
 
@@ -36,13 +36,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <img class="img-circle vnd-img-navbar" src="{{ 'http://www.gravatar.com/avatar/' ~ (ligneus_user().username ~ '@ligneus.de')|gravatarHash }}">
-                            {{ ligneus_user().username }}
+                            <img class="img-circle vnd-img-navbar" src="{{ 'http://www.gravatar.com/avatar/' ~ (app.user.email)|gravatarHash }}">
+                            {{ app.user.username }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="{{ path('ligneus_user_logout') }}">
+                                <a href="{{ path('fos_user_security_logout') }}">
                                     <i class="fa fa-power-off"></i>
                                     Logout
                                 </a>

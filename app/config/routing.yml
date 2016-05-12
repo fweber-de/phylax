@@ -1,25 +1,21 @@
-ligneus_api:
-    resource: "@LigneusApiBundle/Resources/config/routing.yml"
-    prefix:   /api
-    options:
-        roles:
-            - WebAdmin
-        auth: basic
-        expose: true
+# api:
+#     resource: "@ApiBundle/Resources/config/routing.yml"
+#     prefix:   /api
+#     options:
+#         expose: true
 
-ligneus_app:
-    resource: "@LigneusAppBundle/Resources/config/routing.yml"
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
     options:
-        roles:
-            - WebAdmin
+        expose: true
 
-ligneus_tracker:
-    resource: "@LigneusTrackerBundle/Resources/config/routing.yml"
+tracker:
+    resource: "@TrackerBundle/Resources/config/routing.yml"
     prefix:   /tracker
 
-ligneus_security:
-    resource: "@LigneusUserBundle/Resources/config/routing.yml"
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
     prefix:   /
 
 fos_js_routing:

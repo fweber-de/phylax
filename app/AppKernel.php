@@ -16,14 +16,15 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Ligneus\TrackerBundle\LigneusTrackerBundle(),
-            new Ligneus\DataBundle\LigneusDataBundle(),
-            new Ligneus\AppBundle\LigneusAppBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-            //new App\UserBundle\AppUserBundle(),
-            new Ligneus\ApiBundle\LigneusApiBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new TrackerBundle\TrackerBundle(),
+            new DataBundle\DataBundle(),
+            new AppBundle\AppBundle(),
+            new UserBundle\UserBundle(),
+            new ApiBundle\ApiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

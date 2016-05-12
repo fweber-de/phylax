@@ -11,11 +11,11 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
         <!-- CSS -->
-        <link href="//cdn.ligneus.local/cdnfiles/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link href="//cdn.ligneus.local/cdnfiles/css/global.css" rel="stylesheet">
-        <link href="//cdn.ligneus.local/cdnfiles/sweet-alert/0.4.3/css/sweet-alert.css" rel="stylesheet">
-        <link href="//cdn.ligneus.local/cdnfiles/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="//cdn.ligneus.local/cdnfiles/colpick/2.0.2/css/colpick.css" rel="stylesheet">
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/sweet-alert.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/colpick.css') }}" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
         <!-- APP CSS -->
@@ -23,14 +23,14 @@
         {% endblock %}
 
         <!-- JS -->
-        <script src="//cdn.ligneus.local/cdnfiles/jquery/jquery-2.1.1.min.js"></script>
-        <script src="//cdn.ligneus.local/cdnfiles/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="//cdn.ligneus.local/cdnfiles/sweet-alert/0.4.3/js/sweet-alert.min.js"></script>
-        <script src="//cdn.ligneus.local/cdnfiles/chart/1.0.1/chart.min.js"></script>
-        <script src="//cdn.ligneus.local/cdnfiles/colpick/2.0.2/js/colpick.js"></script>
-        <script src="//cdn.ligneus.local/cdnfiles/randomColor/0.2.0/randomColor.js"></script>
-        <script src="//cdn.ligneus.local/cdnfiles/moment/2.10.6/moment.min.js"></script>
-        <script src="//cdn.ligneus.local/cdnfiles/sparkline/2.1.2/jquery.sparkline.min.js"></script>
+        <script src="{{ asset('assets/js/jquery-2.1.1.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/sweet-alert.min.js') }}"></script>
+        <script src="{{ asset('assets/js/chart.min.js') }}"></script>
+        <script src="{{ asset('assets/js/colpick.js') }}"></script>
+        <script src="{{ asset('assets/js/randomColor.js') }}"></script>
+        <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.sparkline.min.js') }}"></script>
 
         <!-- APP JS -->
         {% block javascripts %}
