@@ -1,0 +1,64 @@
+body {
+    background-color: #061918;
+    padding-top: 90px;
+}
+
+.lig-login-box {
+    /*background-color: rgba(120, 175, 136, 0.8);*/
+    padding-top: 50px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+
+.lig-login-logo-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lig-login-logo-box img {
+    width: 100px;
+    padding-bottom: 10px;
+}
+
+.lig-login-app-name {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    font-size: 30px;
+}
+
+.lig-info-box {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+}
+
+.lig-muted {
+    color: #999999;
+    font-style: oblique;
+}
+
+.lig-yellow {
+    color: #ffcc33;
+}
+
+.lig-green {
+    color: #339900;
+}
+
+.lig-strong {
+    font-weight: 800;
+}
+
+.btn-login {
+    color: #fff;
+    background-color: #418D53;
+    border-color: #77AA97;
+    font-size: 20px;
+}
+
+.form-control {
+    font-size: 20px;
+    height: auto;
+}
+
+#footer {
+    display: none;
+}
