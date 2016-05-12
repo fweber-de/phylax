@@ -1,0 +1,6 @@
+{
+  "name": "Phylax",
+  "tagline": "Error Tracking",
+  "body": "Phylax Error Tracker\r\n====================\r\n\r\nApp Monitor\r\n\r\n* Can send Email or Slack Notifications\r\n* Application Heartbeat Monitoring\r\n\r\n## Installation\r\n\r\n    composer install\r\n    php app/console doctrine:database:create\r\n    php app/console doctrine:schema:update --force\r\n    php app/console cache:clear --env=prod\r\n\r\n## Update\r\n\r\n    git pull\r\n    composer install\r\n    php app/console doctrine:schema:update --force\r\n    php app/console cache:clear --env=prod\r\n\r\n## Important Libraries/Bundles\r\n\r\n* SymfonyBundle [PhylaxTrackerBundle]()\r\n* Heartbeat Monitor Library [HeartbeatLib]()\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
