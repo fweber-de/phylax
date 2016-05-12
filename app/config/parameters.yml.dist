@@ -19,14 +19,6 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    #userbundle
-    ad_user: webtester
-    ad_password: 123456789
-    ldap_host: "ligneus.tug"
-    ldap_dn: "OU=Benutzer,DC=ligneus,DC=tug"
-    group_dn: "OU=WebIntranet,OU=Gruppen,DC=ligneus,DC=tug"
-    ligneus.user.appname: Ligneus ApplicationMonitor
-
     #exc
     exc.ping_threshold: 30
     exc.heartbeat_fallback_emails: fweber@ligneus.de
