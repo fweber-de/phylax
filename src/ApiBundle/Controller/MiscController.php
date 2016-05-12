@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use GuzzleHttp\Client;
 
 /**
- * @author Florian Weber <fweber@ligneus.de>
+ * @author Florian Weber <florian.weber@fweber.info>
  */
 class MiscController extends AbstractApiController
 {

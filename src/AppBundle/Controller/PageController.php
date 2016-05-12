@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @author Florian Weber <fweber@ligneus.de>
+ * @author Florian Weber <florian.weber@fweber.info>
  */
 class PageController extends Controller
 {

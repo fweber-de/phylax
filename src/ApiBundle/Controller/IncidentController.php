@@ -5,7 +5,7 @@ namespace ApiBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @author Florian Weber <fweber@ligneus.de>
+ * @author Florian Weber <florian.weber@fweber.info>
  */
 class IncidentController extends AbstractApiController
 {

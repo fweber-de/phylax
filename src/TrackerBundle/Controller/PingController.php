@@ -9,7 +9,7 @@ use Seld\JsonLint\JsonParser;
 use \DataBundle\Entity\Heartbeat;
 
 /**
- * @author Florian Weber <fweber@ligneus.de>
+ * @author Florian Weber <florian.weber@fweber.info>
  */
 class PingController extends Controller
 {
