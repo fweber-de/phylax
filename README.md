@@ -22,5 +22,5 @@ App Monitor
 
 ## Important Libraries/Bundles
 
-* SymfonyBundle [PhylaxTrackerBundle]()
+* SymfonyBundle [PhylaxTrackerBundle](https://github.com/fweber-de/PhylaxTrackerBundle)
 * Heartbeat Monitor Library [HeartbeatLib]()
