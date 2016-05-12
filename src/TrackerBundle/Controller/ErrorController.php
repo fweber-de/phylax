@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Seld\JsonLint\JsonParser;
 
 /**
- * @author Florian Weber <fweber@ligneus.de>
+ * @author Florian Weber <florian.weber@fweber.info>
  */
 class ErrorController extends Controller
 {

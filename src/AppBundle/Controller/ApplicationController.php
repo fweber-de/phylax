@@ -8,7 +8,7 @@ use DataBundle\Entity\Application;
 use Util\Helper\ApplicationHelper;
 
 /**
- * @author Florian Weber <fweber@ligneus.de>
+ * @author Florian Weber <florian.weber@fweber.info>
  */
 class ApplicationController extends Controller
 {

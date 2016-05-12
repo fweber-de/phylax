@@ -3,7 +3,7 @@
 namespace Util\Helper;
 
 /**
- * @author Florian Weber <fweber@ligneus.de>
+ * @author Florian Weber <florian.weber@fweber.info>
  */
 class ApplicationHelper
 {
