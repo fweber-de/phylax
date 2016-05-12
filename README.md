@@ -1,4 +1,4 @@
-Error Tracker
-=============
+Phylax Error Tracker
+====================
 
 App Monitor
