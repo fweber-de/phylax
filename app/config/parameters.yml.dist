@@ -21,4 +21,6 @@ parameters:
 
     #exc
     exc.ping_threshold: 30
-    exc.heartbeat_fallback_emails: fweber@ligneus.de
+    exc.heartbeat_fallback_emails:
+    exc.mail_from:
+    exc.console_host:
