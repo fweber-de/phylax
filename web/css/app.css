@@ -1,0 +1,262 @@
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -62px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+    background-color: #f7f7f7;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    height: 62px;
+    background-color: #ffffff;
+    border-top: 2px solid #dedede;
+}
+
+.l-btn-danger:link {
+    color: #d9534f;
+}
+
+.l-btn-warning:link {
+    color: #f0ad4e;
+}
+
+.l-btn-info:link {
+    color: #5bc0de;
+}
+
+.l-btn-success:link {
+    color: #449d44;
+}
+
+#exceptions-legend {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+#exceptions-legend div > span {
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.l-fa-big {
+    font-size: 43px;
+}
+
+.l-font-danger {
+    color: #d9534f;
+}
+
+.l-font-warning {
+    color: #f0ad4e;
+}
+
+.l-font-info {
+    color: #5bc0de;
+}
+
+.l-font-success {
+    color: #449d44;
+}
+
+/*
+ * new
+ */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.vnd-img-navbar {
+    height: 20px;
+}
+
+.vnd-top-bar {
+    background-color: #ffffff;
+    padding-top: 20px;
+}
+
+ul.vnd-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+ul.vnd-nav > li {
+    display: inline;
+    margin-left: 9px;
+    margin-right: 9px;
+    padding-bottom: 18px;
+}
+
+ul.vnd-nav > li.active {
+    border-bottom: 4px solid #22A7F0;
+}
+
+ul.vnd-nav > li.active a {
+    color: #22A7F0;
+}
+
+.vnd-nav a:link, .vnd-top-bar a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+.vnd-nav a:hover {
+    color: #22A7F0;
+    text-decoration: none;
+}
+
+.vnd-body {
+    border-top: 2px solid #dedede;
+    padding-top: 19px;
+}
+
+.vnd-table {
+    background-color: #ffffff;
+}
+
+.vnd-table>tbody>tr>td, .vnd-table>tbody>tr>th, .vnd-table>tfoot>tr>td, .vnd-table>tfoot>tr>th, .vnd-table>thead>tr>td, .vnd-table>thead>tr>th {
+    border: 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.vnd-font-300 {
+    font-weight: 300;
+}
+
+.vnd-font-400 {
+    font-weight: 400;
+}
+
+.vnd-font-600 {
+    font-weight: 600;
+}
+
+.vnd-font-700 {
+    font-weight: 700;
+}
+
+.vnd-block {
+    display: block;
+}
+
+.vnd-th-toggles a:link, .vnd-th-toggles a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+.vnd-th-toggles a:hover {
+    color: #22A7F0;
+    text-decoration: none;
+}
+
+.vnd-th-toggles a.active {
+    color: #22A7F0;
+    text-decoration: none;
+}
+
+.vnd-bigtext {
+    font-size: 24px;
+    display: block;
+}
+
+.vnd-descriptive-label {
+    font-size: 16px;
+    color: #AAAAAA;
+    display: block;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.vnd-bulb {
+    width: 13px;
+    height: 13px;
+    color: transparent;
+    border-radius: 17px;
+    font-size: 14px;
+}
+
+/**
+ * MISC
+ */
+
+.vnd-slight-glow {
+    background-color: #f7f7f7;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.vnd-slight-glow.vnd-info {
+    background-color: #8CD9FF;
+}
+
+.vnd-slight-glow.vnd-danger {
+    background-color: #FFADB1;
+}
+
+.vnd-slight-glow.vnd-success {
+    background-color: #EDFFDD;
+}
+
+.vnd-slight-glow.vnd-warning {
+    background-color: #FFE5BF;
+}
+
+/*
+ * LABEL
+ */
+
+.vnd-label {
+    background-color: #eeeeee;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.vnd-label.vnd-label-info {
+    background-color: #5bc0de;
+    color: #ffffff;
+}
+
+.vnd-label.vnd-label-danger {
+    background-color: #d9534f;
+    color: #ffffff;
+}
+
+.vnd-label.vnd-label-success {
+    background-color: #5cb85c;
+    color: #ffffff;
+}
+
+.vnd-label.vnd-label-warning {
+    background-color: #f0ad4e;
+    color: #ffffff;
+}
+
+/**
+ * misc
+ */
+
+.tr-incident.silent {
+    opacity: .50;
+}

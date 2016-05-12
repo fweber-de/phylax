@@ -1,0 +1,17 @@
+An Exception occurred
+=====================
+
+Application:    {{ application.name|upper }}    {{ url('applications_object', {applicationId: application.id}) }}
+
+Message:        {{ incident.message }}
+IP:             {{ incident.ip }}
+Status Code:    {{ incident.statusCode }}
+Class:          {{ incident.class }}
+When?           {{ incident.occurrence|date('d.m.Y H:i:s') }}
+URI:            {{ incident.uri }}
+
+Trace:
+
+---
+{{ incident.trace|format_trace|raw }}
+---

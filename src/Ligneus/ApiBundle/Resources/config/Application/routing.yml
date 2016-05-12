@@ -1,0 +1,11 @@
+api_applications_collection:
+    pattern:  /
+    defaults: { _controller: LigneusApiBundle:Application:collection }
+
+api_applications_entity:
+    pattern:  /{applicationId}
+    defaults: { _controller: LigneusApiBundle:Application:entity }
+
+api_applications_entity_incidents:
+    pattern:  /{applicationId}/incidents
+    defaults: { _controller: LigneusApiBundle:Application:entityIncidents }

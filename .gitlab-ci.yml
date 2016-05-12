@@ -1,0 +1,41 @@
+stages:
+    - test
+    - deploy
+
+apigen:
+    stage: deploy
+    script:
+        - "rd C:\\xampp\\htdocs\\www\\apigen\\exc /S/Q"
+        - "php c:\\bin\\apigen.phar generate -s src -d C:\\xampp\\htdocs\\www\\apigen\\exc"
+    only:
+        - master
+    tags:
+        - deploy
+
+#prod:
+#    stage: deploy
+#    script:
+#        - 'C:\bin\vs\gda\git-deploy-agent.exe deploy -url=http://gitlab.ligneus.local/lig-webapps/exc.git -target=C:\xampp\htdocs\gda-deploy\exc -username=fweber -password=bloodvomit1'
+#    only:
+#        - master
+#    tags:
+#        - deploy
+
+#prod_ub:
+#    stage: deploy
+#    script:
+#        - 'export https_proxy=http://125.122.82.113:3128'
+#        - 'php /php-bin/gda/agent deploy http://gitlab.ligneus.local/lig-webapps/exc.git /var/www/gda/exc fweber bloodvomit1'
+#    only:
+#        - master
+#    tags:
+#        - ubuntu
+
+security-advisor:
+    stage: test
+    script:
+        - 'security-checker security:check composer.lock'
+    except:
+        - master
+    tags:
+        - test

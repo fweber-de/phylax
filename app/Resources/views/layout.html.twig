@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+    <span class="hidden" id="current-page">{% block currentPage %}{% endblock %}</span>
+
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('index') }}">
+                    <i class="fa fa-hashtag"></i>
+                    AppMonitor
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img class="img-circle vnd-img-navbar" src="{{ 'http://www.gravatar.com/avatar/' ~ (ligneus_user().username ~ '@ligneus.de')|gravatarHash }}">
+                            {{ ligneus_user().username }}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ path('ligneus_user_logout') }}">
+                                    <i class="fa fa-power-off"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="vnd-container">
+            <div class="vnd-top-bar">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="pull-left">
+                                {% block topBarLeft %}
+                                {% endblock %}
+                            </div>
+
+                            <ul class="pull-right vnd-nav">
+                                <li id="nl-dashboard"><a href="{{ path('dashboard') }}">Dashboard</a></li>
+                                <li id="nl-applications"><a href="{{ path('applications_collection') }}">Applications</a></li>
+                                <li id="nl-stream"><a href="{{ path('stream') }}">Stream</a></li>
+                                <!-- <li id="nl-settings"><a href="#">Settings</a></li> -->
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="vnd-body">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    {# flash messages #}
+                                    {% for flashMessage in app.session.flashbag.get('notice') %}
+                                        <div class="alert alert-info">
+                                            <button type="button"
+                                                    class="close"
+                                                    data-dismiss="alert">
+                                                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                            </button>
+                                            {{ flashMessage }}
+                                        </div>
+                                    {% endfor %}
+
+                                    {% for flashMessage in app.session.flashbag.get('error') %}
+                                        <div class="alert alert-danger">
+                                            <button type="button"
+                                                    class="close"
+                                                    data-dismiss="alert">
+                                                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                            </button>
+                                            {{ flashMessage }}
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+
+                            {% block content %}
+                            {% endblock %}
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

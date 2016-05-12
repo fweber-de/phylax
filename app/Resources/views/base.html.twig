@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}Ligneus AppMonitor{% endblock %}</title>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!-- CSS -->
+        <link href="//cdn.ligneus.local/cdnfiles/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.ligneus.local/cdnfiles/css/global.css" rel="stylesheet">
+        <link href="//cdn.ligneus.local/cdnfiles/sweet-alert/0.4.3/css/sweet-alert.css" rel="stylesheet">
+        <link href="//cdn.ligneus.local/cdnfiles/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//cdn.ligneus.local/cdnfiles/colpick/2.0.2/css/colpick.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+        <!-- APP CSS -->
+        {% block stylesheets %}
+        {% endblock %}
+
+        <!-- JS -->
+        <script src="//cdn.ligneus.local/cdnfiles/jquery/jquery-2.1.1.min.js"></script>
+        <script src="//cdn.ligneus.local/cdnfiles/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="//cdn.ligneus.local/cdnfiles/sweet-alert/0.4.3/js/sweet-alert.min.js"></script>
+        <script src="//cdn.ligneus.local/cdnfiles/chart/1.0.1/chart.min.js"></script>
+        <script src="//cdn.ligneus.local/cdnfiles/colpick/2.0.2/js/colpick.js"></script>
+        <script src="//cdn.ligneus.local/cdnfiles/randomColor/0.2.0/randomColor.js"></script>
+        <script src="//cdn.ligneus.local/cdnfiles/moment/2.10.6/moment.min.js"></script>
+        <script src="//cdn.ligneus.local/cdnfiles/sparkline/2.1.2/jquery.sparkline.min.js"></script>
+
+        <!-- APP JS -->
+        {% block javascripts %}
+        {% endblock %}
+
+    </head>
+
+    <body>
+
+        <div id="wrap">
+            {% block body %}
+            {% endblock %}
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <div class="centered copyright">
+                    <p class="text-muted credit">
+                        Tracker Endpoint:
+                        <code>{{ url('tracker_create') }}</code>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

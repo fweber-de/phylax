@@ -1,0 +1,46 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ parent() }} &middot; Stream{% endblock %}
+
+{% block currentPage %}stream{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block topBarLeft %}
+    All Incidents
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+
+            <div class="alert alert-info" style="display: none;">
+                <i class="fa fa-spin fa-refresh"></i>
+                New Incidents recorded! <a class="alert-link" href="{{ path('stream') }}">Refresh!</a>
+            </div>
+
+        </div>
+    </div>
+
+    {% include('_incidents.html.twig') %}
+
+    <div class="navigation">
+        {{ knp_pagination_render(incidents) }}
+    </div>
+
+    <script>
+
+        $(document).ready(function() {
+
+            setInterval(function() {
+                window.location.href = window.location.href; //refresh
+            }, 10000);
+
+        });
+
+    </script>
+
+{% endblock %}

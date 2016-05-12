@@ -1,0 +1,11 @@
+incidents_like:
+    path:       /like/{incidentId}
+    defaults:   { _controller: LigneusAppBundle:Incident:like }
+
+incidents_detail:
+    path:       /{incidentId}
+    defaults:   { _controller: LigneusAppBundle:Incident:detail }
+
+incidents_silence:
+    path:       /{incidentId}/silence
+    defaults:   { _controller: LigneusAppBundle:Incident:silence }

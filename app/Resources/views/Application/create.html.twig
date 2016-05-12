@@ -1,0 +1,103 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ parent() }} &middot; Add Application{% endblock %}
+
+{% block currentPage %}applications{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/application.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Add Application</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form method="post" id="form-add-application">
+
+                        <div class="form-group">
+                            <label for="input-name">Application Name</label>
+                            <input type="text" class="form-control" id="input-name" placeholder="Application Name" name="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-url">URL</label>
+                            <input type="text" class="form-control" id="input-url" placeholder="URL" name="url">
+                        </div>
+
+                        <hr>
+
+                        <div class="form-group">
+                            <label for="input-recipients">Email Recipients (separeted by ;)</label>
+                            <input type="text" class="form-control" id="input-recipients" placeholder="Recipients" name="recipients">
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="sendmail"> Send Emails?
+                            </label>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-group">
+                            <label for="input-slack-url">Slack URL</label>
+                            <input type="text" class="form-control" id="input-slack-url" placeholder="Slack URL" name="slack_url">
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="sendslack"> Send Slack Notification?
+                            </label>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-group">
+                            <label for="input-color">Color</label>
+
+                            <div class="input-group">
+                                <div class="input-group-addon">#</div>
+                                <input type="text" class="form-control" id="input-color" placeholder="Color" name="color">
+                            </div>
+                        </div>
+
+                        <script>
+                            $('#input-color').colpick({
+                                layout: 'hex',
+                                submit: 0,
+                                onChange: function (hsb, hex, rgb, el, bySetColor) {
+                                    if (!bySetColor)
+                                        $(el).val(hex);
+                                }
+                            }).keyup(function () {
+                                $(this).colpickSetColor(this.value);
+                            });
+
+                            if ($('#input-color').val() !== '') {
+                                $('#input-color').colpickSetColor($('#input-color').val());
+                            }
+                        </script>
+
+                        <input type="hidden" value="1" name="sent">
+
+                        <hr>
+
+                        <button type="submit" class="btn btn-success">Add</button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
