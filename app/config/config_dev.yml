@@ -43,12 +43,3 @@ monolog:
 
 assetic:
     use_controller: true
-
-swiftmailer:
-    delivery_address: florian.weber.dd@me.com
-    transport:  smtp
-    host:       smtp.mandrillapp.com
-    username:   florian.weber.dd@me.com
-    password:   OyCuFN54tFTJzupvxNxfZw
-    port:       587
-    encryption: tls
