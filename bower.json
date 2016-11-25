@@ -1,0 +1,23 @@
+{
+  "name": "phylax",
+  "homepage": "https://github.com/fweber-de/phylax",
+  "authors": [
+    "fweber <fweber@ligneus.de>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "font-awesome": "fontawesome#~4.7.0",
+    "moment": "~2.17.0"
+  }
+}
