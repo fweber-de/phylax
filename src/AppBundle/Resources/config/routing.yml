@@ -1,0 +1,7 @@
+index:
+    path:       /
+    defaults:   { _controller: FrameworkBundle:Redirect:redirect, route: dashboard, permanent: true }
+
+dashboard:
+    path:       /dashboard
+    defaults:   { _controller: AppBundle:App:dashboard }
