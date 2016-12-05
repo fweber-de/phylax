@@ -1,0 +1,14 @@
+language: php
+php:
+  - '5.6'
+  - '7.0'
+
+before_install:
+    - apt-get update -qq
+    - apt-get install -y wget
+
+install:
+    - wget http://get.sensiolabs.org/security-checker.phar
+
+script:
+    - php security-checker.phar security:check composer.lock 
