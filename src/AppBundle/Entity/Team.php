@@ -52,11 +52,17 @@ class Team
      */
     private $sources;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Service", mappedBy="team")
+     */
+    private $services;
+
     public function __construct()
     {
         $this->notifications = new ArrayCollection();
         $this->users = new ArrayCollection();
         $this->sources = new ArrayCollection();
+        $this->services = new ArrayCollection();
     }
 
     /**
@@ -217,5 +223,39 @@ class Team
     public function getSources()
     {
         return $this->sources;
+    }
+
+    /**
+     * Add service
+     *
+     * @param \AppBundle\Entity\Service $service
+     *
+     * @return Team
+     */
+    public function addService(\AppBundle\Entity\Service $service)
+    {
+        $this->services[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param \AppBundle\Entity\Service $service
+     */
+    public function removeService(\AppBundle\Entity\Service $service)
+    {
+        $this->services->removeElement($service);
+    }
+
+    /**
+     * Get services
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getServices()
+    {
+        return $this->services;
     }
 }
