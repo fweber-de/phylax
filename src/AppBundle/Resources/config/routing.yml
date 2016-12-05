@@ -5,3 +5,8 @@ index:
 dashboard:
     path:       /dashboard
     defaults:   { _controller: AppBundle:App:dashboard }
+
+#sources
+sources_collection:
+    path:       /sources
+    defaults:   { _controller: AppBundle:Source:collection }

@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @author Florian Weber <florian.weber@fweber.info>
  */
-class AppController extends Controller
+class SourceController extends Controller
 {
-    public function dashboardAction()
+    public function collectionAction()
     {
-        $sources = $this->getDoctrine()->getRepository('AppBundle:Source')->findAll();
+        $sources = $this->getDoctrine('AppBundle:Source')->findAll();
 
-        return $this->render('App/dashboard.html.twig', [
+        return $this->render('Source/collection.html.twig', [
             'sources' => $sources,
         ]);
     }
