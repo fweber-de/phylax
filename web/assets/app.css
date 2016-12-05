@@ -84,11 +84,11 @@ body {
 }
 
 .vnd-sidenav ul li.active a:link, .vnd-sidenav ul li.active a:visited {
-    color: #DCC6E0;
+    color: #9B59B6;
 }
 
 .vnd-sidenav ul li.active a:hover {
-    color: #9B59B6;
+    color: #DCC6E0;
 }
 
 /**

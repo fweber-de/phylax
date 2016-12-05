@@ -1,8 +1,23 @@
 parameters:
 
 services:
-    exc.string_extension:
+    phylax.twig.string_extension:
         class: AppBundle\Twig\StringExtension
         public: false
         tags:
             - { name: twig.extension }
+
+    phylax.notification.slack:
+        class: AppBundle\Service\SlackNotificationService
+        public: false
+
+    phylax.notification.email:
+        class: AppBundle\Service\EmailNotificationService
+        public: false
+
+    phylax.incident_processor:
+        class: AppBundle\Service\IncidentProcessorService
+        public: true
+        arguments:
+            - "@doctrine"
+            - [slack: "@phylax.notification.slack", email: "@phylax.notification.email"]
