@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block panes %}
+
+    <div class="row">
+        <div class="col-md-2 vnd-sidenav">
+
+            <span class="vnd-headline">Organization</span>
+
+            <ul>
+                <li id="snl-dashboard"><a href="{{ path('dashboard') }}">Dashboard</a></li>
+                <li id="snl-projects"><a href="#">Projects &amp; Teams</a></li>
+                <li id="snl-stats"><a href="#">Stats</a></li>
+            </ul>
+
+            <hr>
+
+            <span class="vnd-headline">Issues</span>
+
+            <ul>
+                <li id="snl-assigned"><a href="#">Assigned to Me</a></li>
+                <li id="snl-stream"><a href="#">Stream</a></li>
+            </ul>
+
+            <hr>
+
+            <span class="vnd-headline">Manage</span>
+
+            <ul>
+                <li id="snl-members"><a href="#">Members</a></li>
+                <li id="snl-auth"><a href="#">Auth</a></li>
+                <li id="snl-keys"><a href="#">API Keys</a></li>
+                <li id="snl-settings"><a href="#">Settings</a></li>
+            </ul>
+
+        </div>
+        <div class="col-md-10 vnd-content">
+
+            {% block content %}{% endblock %}
+
+        </div>
+    </div>
+
+{% endblock %}
