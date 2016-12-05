@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Inicident
@@ -28,6 +29,16 @@ class Incident
     private $source;
 
     /**
+     * @ORM\OneToMany(targetEntity="Notification", mappedBy="incident")
+     */
+    private $notifications;
+
+    public function __construct()
+    {
+        $this->notifications = new ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -42,7 +53,7 @@ class Incident
      *
      * @param \AppBundle\Entity\Source $source
      *
-     * @return Inicident
+     * @return Incident
      */
     public function setSource(\AppBundle\Entity\Source $source = null)
     {
@@ -59,5 +70,39 @@ class Incident
     public function getSource()
     {
         return $this->source;
+    }
+
+    /**
+     * Add notification
+     *
+     * @param \AppBundle\Entity\Notification $notification
+     *
+     * @return Incident
+     */
+    public function addNotification(\AppBundle\Entity\Notification $notification)
+    {
+        $this->notifications[] = $notification;
+
+        return $this;
+    }
+
+    /**
+     * Remove notification
+     *
+     * @param \AppBundle\Entity\Notification $notification
+     */
+    public function removeNotification(\AppBundle\Entity\Notification $notification)
+    {
+        $this->notifications->removeElement($notification);
+    }
+
+    /**
+     * Get notifications
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNotifications()
+    {
+        return $this->notifications;
     }
 }

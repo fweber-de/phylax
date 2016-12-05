@@ -41,8 +41,14 @@ class Team
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Notification", mappedBy="team")
+     */
+    private $notifications;
+
     public function __construct()
     {
+        $this->notifications = new ArrayCollection();
         $this->users = new ArrayCollection();
     }
 
@@ -136,5 +142,39 @@ class Team
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add notification
+     *
+     * @param \AppBundle\Entity\Notification $notification
+     *
+     * @return Team
+     */
+    public function addNotification(\AppBundle\Entity\Notification $notification)
+    {
+        $this->notifications[] = $notification;
+
+        return $this;
+    }
+
+    /**
+     * Remove notification
+     *
+     * @param \AppBundle\Entity\Notification $notification
+     */
+    public function removeNotification(\AppBundle\Entity\Notification $notification)
+    {
+        $this->notifications->removeElement($notification);
+    }
+
+    /**
+     * Get notifications
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNotifications()
+    {
+        return $this->notifications;
     }
 }
