@@ -46,10 +46,17 @@ class Team
      */
     private $notifications;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Source", inversedBy="teams")
+     * @ORM\JoinTable(name="sources_teams")
+     */
+    private $sources;
+
     public function __construct()
     {
         $this->notifications = new ArrayCollection();
         $this->users = new ArrayCollection();
+        $this->sources = new ArrayCollection();
     }
 
     /**
@@ -176,5 +183,39 @@ class Team
     public function getNotifications()
     {
         return $this->notifications;
+    }
+
+    /**
+     * Add source
+     *
+     * @param \AppBundle\Entity\Source $source
+     *
+     * @return Team
+     */
+    public function addSource(\AppBundle\Entity\Source $source)
+    {
+        $this->sources[] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Remove source
+     *
+     * @param \AppBundle\Entity\Source $source
+     */
+    public function removeSource(\AppBundle\Entity\Source $source)
+    {
+        $this->sources->removeElement($source);
+    }
+
+    /**
+     * Get sources
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSources()
+    {
+        return $this->sources;
     }
 }

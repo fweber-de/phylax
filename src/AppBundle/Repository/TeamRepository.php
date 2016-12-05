@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Source;
+
 /**
  * TeamRepository
  *
@@ -10,4 +12,22 @@ namespace AppBundle\Repository;
  */
 class TeamRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findTeamsBySource(Source $source)
+    {
+        $em = $this->getEntityManager();
+
+        $query = $em->createQueryBuilder()
+            ->select('t')
+            ->from('AppBundle:Team', 't')
+            ->join('t.sources', 's')
+            ->addSelect('s')
+            ->where('s.id = :sourceId')
+            ->setParameter('sourceId', $source->getId())
+            ->getQuery()
+        ;
+
+        $result = $query->getResult();
+
+        return $result;
+    }
 }

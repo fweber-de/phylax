@@ -55,9 +55,15 @@ class Source
      */
     private $incidents;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Team", mappedBy="sources")
+     */
+    private $teams;
+
     public function __construct()
     {
         $this->incidents = new ArrayCollection();
+        $this->teams = new ArrayCollection();
     }
 
     /**
@@ -198,5 +204,39 @@ class Source
     public function getIncidents()
     {
         return $this->incidents;
+    }
+
+    /**
+     * Add team
+     *
+     * @param \AppBundle\Entity\Team $team
+     *
+     * @return Source
+     */
+    public function addTeam(\AppBundle\Entity\Team $team)
+    {
+        $this->teams[] = $team;
+
+        return $this;
+    }
+
+    /**
+     * Remove team
+     *
+     * @param \AppBundle\Entity\Team $team
+     */
+    public function removeTeam(\AppBundle\Entity\Team $team)
+    {
+        $this->teams->removeElement($team);
+    }
+
+    /**
+     * Get teams
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTeams()
+    {
+        return $this->teams;
     }
 }
