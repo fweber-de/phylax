@@ -1,0 +1,13 @@
+/**
+ * general
+ */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #eeeeee;
+    padding-top: 70px;
+}
+
+#footer {
+    display: none;
+}

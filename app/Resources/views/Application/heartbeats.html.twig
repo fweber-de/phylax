@@ -1,0 +1,80 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ parent() }} &middot; Application '{{ application.name }}'{% endblock %}
+
+{% block currentPage %}applications{% endblock %}
+
+{% block topBarLeft %}
+    <span class="vnd-font-600">{{ application.name|upper }}</span>
+    &middot;
+    Heartbeats
+{% endblock %}
+
+{% block content %}
+
+    {% if application.heartbeats|length() > 0 %}
+
+        {% for heartbeat in application.heartbeats %}
+
+            {% set diff = heartbeat.lastPing|diff_time(date('now')) %}
+
+            <a name="hb{{ heartbeat.id }}"></a>
+            <div class="panel panel-{% if heartbeat.notified %}warning{% else %}default{% endif %}">
+                {% if heartbeat.notified %}<div class="panel-heading">Notified</div>{% endif %}
+                <div class="panel-body">
+                    <div class="pull-right">
+
+                        {% if heartbeat.monitor == true %}
+                            <a href="{{ path('applications_heartbeat_monitor', {applicationId: application.id, heartbeatId: heartbeat.id}) }}" class="btn btn-sm btn-success">
+                                <i class="fa fa-eye"></i>
+                                Überwachung beenden
+                            </a>
+                        {% else %}
+                            <a href="{{ path('applications_heartbeat_monitor', {applicationId: application.id, heartbeatId: heartbeat.id}) }}" class="btn btn-sm btn-warning">
+                                <i class="fa fa-eye"></i>
+                                Überwachung
+                            </a>
+                        {% endif %}
+
+                        {# alias #}
+                        <a href="{{ path('applications_heartbeat_edit_alias', {applicationId: application.id, heartbeatId: heartbeat.id}) }}" class="btn btn-sm btn-success">
+                            <i class="fa fa-map-o"></i>
+                        </a>
+
+                        {# delete #}
+                        <a href="{{ path('applications_heartbeat_delete', {applicationId: application.id, heartbeatId: heartbeat.id}) }}" class="btn btn-sm btn-danger">
+                            <i class="fa fa-trash"></i> Löschen
+                        </a>
+                    </div>
+                    <div class="pull-left" style="margin-right: 19px;">
+                        {% if diff > ping_threshold %}
+                            <i class="fa fa-times-circle l-fa-big l-font-danger"></i>
+                        {% else %}
+                            <i class="fa fa-check-circle l-fa-big l-font-success"></i>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <h4>
+                            {{ heartbeat.ip }}
+                            {% if heartbeat.alias is not null %}
+                                <small>{{ heartbeat.alias }}</small>
+                            {% endif %}
+                        </h4>
+                        Last Heartbeat:
+                        {{ heartbeat.lastPing|date('d.m.Y H:i:s') }}
+                        <small>{{ diff }} seconds ago</small>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="alert alert-warning">
+            No Heartbeats recorded yet!
+        </div>
+
+    {% endif %}
+
+{% endblock %}

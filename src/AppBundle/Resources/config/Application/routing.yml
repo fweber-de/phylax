@@ -1,0 +1,35 @@
+applications_collection:
+    path:       /
+    defaults:   { _controller: AppBundle:Application:collection }
+
+applications_create:
+    path:       /create
+    defaults:   { _controller: AppBundle:Application:create }
+
+applications_object:
+    path:       /{applicationId}
+    defaults:   { _controller: AppBundle:Application:object }
+
+applications_update:
+    path:       /{applicationId}/update
+    defaults:   { _controller: AppBundle:Application:update }
+
+applications_delete:
+    path:       /{applicationId}/delete
+    defaults:   { _controller: AppBundle:Application:delete }
+
+applications_heartbeat:
+    path:       /{applicationId}/heartbeats
+    defaults:   { _controller: AppBundle:Application:heartbeats }
+
+applications_heartbeat_delete:
+    path:       /{applicationId}/heartbeats/{heartbeatId}/delete
+    defaults:   { _controller: AppBundle:Application:deleteHeartbeat }
+
+applications_heartbeat_monitor:
+    path:       /{applicationId}/heartbeats/{heartbeatId}/monitor
+    defaults:   { _controller: AppBundle:Application:monitorHeartbeat }
+
+applications_heartbeat_edit_alias:
+    path:       /{applicationId}/heartbeats/{heartbeatId}/alias/edit
+    defaults:   { _controller: AppBundle:Application:editHeartbeatAlias }

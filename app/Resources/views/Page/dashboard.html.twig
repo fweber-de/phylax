@@ -1,0 +1,89 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ parent() }} &middot; Dashboard{% endblock %}
+
+{% block currentPage %}dashboard{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/graphs.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <!-- GRAPH DATA -->
+    <div class="hidden" id="data-app-colors">{{ appColors }}</div>
+    <div class="hidden" id="data-7days">{{ data7Days }}</div>
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Monitored Apps</h3>
+                </div>
+
+                {% if applications|length() == 0 %}
+
+                    <div class="panel-body">
+                        No Apps found!
+                    </div>
+
+                {% else %}
+
+                    <table class="table table-striped">
+                        {% for application in applications %}
+
+                            <tr>
+                                <td>
+                                    {% set hbClass = 'fa fa-circle-o l-font-info' %}
+                                    {% if app_get_total_ping_state(application) == true and application.heartbeats|length() > 0 %}
+                                        {% set hbClass = 'fa fa-check-circle l-font-success' %}
+                                    {% elseif app_get_total_ping_state(application) == false and application.heartbeats|length() > 0 %}
+                                        {% set hbClass = 'fa fa-times-circle l-font-danger' %}
+                                    {% endif %}
+
+                                    <a href="{{ path('applications_heartbeat', {applicationId: application.id}) }}">
+                                        <i class="{{ hbClass }}"></i>
+                                    </a>
+
+                                    <a href="{{ path('applications_object', {applicationId: application.id}) }}">{{ application.name }}</a>
+                                </td>
+                                <td>{{ application.url }}</td>
+                                <td>
+                                    <span style="background-color: #{{ application.colorHex }}; color: transparent;">####</span>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+                    </table>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div role="tabpanel">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#days" aria-controls="days" role="tab" data-toggle="tab">Last 7 Days</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="days">
+                        <canvas id="canvas-7days"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
