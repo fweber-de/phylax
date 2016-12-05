@@ -1,0 +1,43 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ parent() }} &middot; Delete Application '{{ application.name }}'{% endblock %}
+
+{% block currentPage %}applications{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/application.js') }}"></script>
+{% endblock %}
+
+{% block topBarLeft %}
+    <span class="vnd-font-600">{{ application.name|upper }}</span>
+    &middot;
+    Delete
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Delete Application</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form method="post" id="form-add-application">
+
+                        <input type="hidden" value="1" name="sent">
+
+                        <button type="submit" class="btn btn-danger">Delete</button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

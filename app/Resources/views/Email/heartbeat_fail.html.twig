@@ -1,0 +1,11 @@
+Heartbeat offline
+=================
+
+The ApplicationMonitor has detected a offline Application Heartbeat
+
+Application:    {{ application.name|upper }}
+                {{ url('applications_heartbeat', {applicationId: application.id}) }}
+
+Failed Heartbeat:
+
+    * {{ heartbeat.ip }}    Last recorded ping: {{ heartbeat.lastPing|date('d.m.Y H:i:s') }}

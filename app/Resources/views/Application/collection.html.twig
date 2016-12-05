@@ -1,0 +1,89 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ parent() }} &middot; Applications{% endblock %}
+
+{% block currentPage %}applications{% endblock %}
+
+{% block topBarLeft %}
+    <a class="btn btn-xs btn-success" href="{{ path('applications_create') }}">
+        <i class="fa fa-plus-circle"></i>
+        Add Application
+    </a>
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-bordered table-responsive vnd-table">
+        <tr class="active">
+            <th>STATUS</th>
+            <th>APP</th>
+            <th></th>
+            <th class="text-right vnd-th-toggles vnd-appgraph-toggles">
+                <a class="active" href="#" data-toggle="24h">24h</a>
+                <a href="#" data-toggle="14d">14d</a>
+            </th>
+            <th class="text-right">ACTIONS</th>
+        </tr>
+
+        {% for application in applications %}
+            <tr>
+                <td style="padding-top: 19px;">
+                    {% set hbClass = 'fa fa-circle-o fa-3x l-font-info' %}
+                    {% if app_get_total_ping_state(application) == true and application.heartbeats|length() > 0 %}
+                        {% set hbClass = 'fa fa-check-circle fa-3x l-font-success' %}
+                    {% elseif app_get_total_ping_state(application) == false and application.heartbeats|length() > 0 %}
+                        {% set hbClass = 'fa fa-times-circle fa-3x l-font-danger' %}
+                    {% endif %}
+
+                    <a href="{{ path('applications_heartbeat', {applicationId: application.id}) }}">
+                        <i class="{{ hbClass }}"></i>
+                    </a>
+                </td>
+                <td>
+                    <span class="vnd-font-600 vnd-block">
+                        <a href="{{ path('applications_object', {applicationId: application.id}) }}">{{ application.name }}</a>
+                    </span>
+                    <span class="vnd-block">{{ application.url }}</span>
+                    <code>{{ application.appkey }}</code>
+                </td>
+                <td style="padding-top: 26px;">
+                    {% if application.sendEmail == true %}
+                        <span class="vnd-label vnd-label-info">Email</span>
+                    {% endif %}
+
+                    {% if application.sendSlack == true %}
+                        <span class="vnd-label vnd-label-info">Slack</span>
+                    {% endif %}
+                </td>
+                <td class="text-right" style="padding-top: 19px;">
+                    <span   class="inlinesparkline sparkdata-24h"
+                            id="sparkdata-24h-{{ application.id }}">
+                        {{ app_get_incident_count_24h(application)|join(',') }}
+                    </span>
+                    <span   class="inlinesparkline sparkdata-14d"
+                            id="sparkdata-14d-{{ application.id }}"
+                            style="display: none;">
+                        {{ app_get_incident_count_14d(application)|join(',') }}
+                    </span>
+                </td>
+                <td style="padding-top: 23px;">
+                    <div class="pull-right">
+                        <a class="btn btn-default btn-sm" href="{{ path('applications_object', {applicationId: application.id}) }}">
+                            <i class="fa fa-eye"></i>
+                            Incidents
+                        </a>
+                        <a class="btn btn-warning btn-sm" href="{{ path('applications_update', {applicationId: application.id}) }}">
+                            <i class="fa fa-edit"></i>
+                            Edit
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="{{ path('applications_delete', {applicationId: application.id}) }}">
+                            <i class="fa fa-trash"></i>
+                            Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
