@@ -10,6 +10,8 @@
 
 {% block body %}
 
+    <span class="hidden" id="current-snl">{% block currentSNL %}{% endblock %}</span>
+
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -84,7 +86,7 @@
     <div class="container-fluid">
         <div class="col-xs-12">
 
-            {% block content %}{% endblock %}
+            {% block panes %}{% endblock %}
 
         </div>
     </div>
