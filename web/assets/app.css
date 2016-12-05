@@ -1,3 +1,45 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+.btn-purple {
+    color: #fff;
+    background-color: #9B59B6;
+    border-color: #BE90D4;
+}
+
+.btn-purple:hover {
+    color: #fff;
+    background-color: #8E44AD;
+}
+
+.vnd-uppercase {
+    text-transform: uppercase;
+}
+
+.vnd-w-700 {
+    font-weight: 700;
+}
+
+/**
+ * navbar
+ */
+
+.vnd-img-navbar {
+    height: 20px;
+}
+
+/**
+ * subnav
+ */
+
+.vnd-subnav {
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 19px;
+}
+
+.vnd-subnav .vnd-t {
+    font-size: 1.4em;
+    margin-top: 3px;
+    display: inline-block;
+}
