@@ -1,22 +1,6 @@
-# api:
-#     resource: "@ApiBundle/Resources/config/routing.yml"
-#     prefix:   /api
-#     options:
-#         expose: true
-
 app:
-    resource: "@AppBundle/Resources/config/routing.yml"
-    prefix:   /
-    options:
-        expose: true
-
-tracker:
-    resource: "@TrackerBundle/Resources/config/routing.yml"
-    prefix:   /tracker
+    resource:  "@AppBundle/Resources/config/routing.yml"
+    prefix:     /
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-    prefix:   /
-
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

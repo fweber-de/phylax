@@ -1,0 +1,100 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-purple {
+    color: #fff;
+    background-color: #9B59B6;
+    border-color: #BE90D4;
+}
+
+.btn-purple:hover {
+    color: #fff;
+    background-color: #8E44AD;
+}
+
+.vnd-uppercase {
+    text-transform: uppercase;
+}
+
+.vnd-w-700 {
+    font-weight: 700;
+}
+
+.vnd-headline {
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/**
+ * navbar
+ */
+
+.vnd-img-navbar {
+    height: 20px;
+}
+
+/**
+ * subnav
+ */
+
+.vnd-subnav {
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 19px;
+}
+
+.vnd-subnav .vnd-t {
+    font-size: 1.4em;
+    margin-top: 3px;
+    display: inline-block;
+}
+
+/**
+ * sidenav
+ */
+
+.vnd-sidenav {
+    padding-top: 19px;
+}
+
+.vnd-sidenav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.vnd-sidenav ul li {
+    font-size: 1.1em;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.vnd-sidenav ul li a:link, .vnd-sidenav ul li a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+.vnd-sidenav ul li a:hover {
+    color: #9B59B6;
+    text-decoration: none;
+}
+
+.vnd-sidenav ul li.active {
+    border-bottom: 4px solid #DCC6E0;
+}
+
+.vnd-sidenav ul li.active a:link, .vnd-sidenav ul li.active a:visited {
+    color: #9B59B6;
+}
+
+.vnd-sidenav ul li.active a:hover {
+    color: #DCC6E0;
+}
+
+/**
+ * content
+ */
+
+.vnd-content {
+    /*padding-top: 19px;*/
+}

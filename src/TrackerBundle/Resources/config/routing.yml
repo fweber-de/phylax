@@ -1,9 +1,0 @@
-tracker_create:
-    path:       /error
-    defaults:   { _controller: TrackerBundle:Error:create, _format: json }
-    methods:    [POST]
-
-tracker_heartbeat:
-    path:       /ping/heartbeat
-    defaults:   { _controller: TrackerBundle:Ping:heartbeat, _format: json }
-    methods:    [POST, OPTIONS]
