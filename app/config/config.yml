@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator: ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -74,3 +74,8 @@ assetic:
         cssrewrite: ~
         uglifyjs2:
             bin: "%kernel.root_dir%/../node_modules/uglifyjs/bin/uglifyjs"
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\User
