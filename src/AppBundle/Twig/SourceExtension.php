@@ -14,7 +14,7 @@ class SourceExtension extends \Twig_Extension
         $this->doctrine = $doctrine;
     }
 
-    public function getFilters()
+    public function getFunctions()
     {
         return [
             new \Twig_SimpleFunction('phylax_source_getSources', array($this, 'getSources')),
