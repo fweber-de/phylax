@@ -12,10 +12,6 @@ class AppController extends Controller
 {
     public function dashboardAction()
     {
-        $sources = $this->getDoctrine()->getRepository('AppBundle:Source')->findAll();
-
-        return $this->render('App/dashboard.html.twig', [
-            'sources' => $sources,
-        ]);
+        return $this->render('App/dashboard.html.twig');
     }
 }

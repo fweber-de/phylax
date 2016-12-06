@@ -12,7 +12,7 @@ class SourceController extends Controller
 {
     public function collectionAction()
     {
-        $sources = $this->getDoctrine('AppBundle:Source')->findAll();
+        $sources = $this->getDoctrine()->getRepository('AppBundle:Source')->findAll();
 
         return $this->render('Source/collection.html.twig', [
             'sources' => $sources,

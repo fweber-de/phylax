@@ -7,6 +7,14 @@ services:
         tags:
             - { name: twig.extension }
 
+    phylax.twig.source_extension:
+        class: AppBundle\Twig\SourceExtension
+        public: false
+        arguments:
+            - "@doctrine"
+        tags:
+            - { name: twig.extension }
+
     phylax.notification.slack:
         class: AppBundle\Service\SlackNotificationService
         public: false
